@@ -63,9 +63,11 @@ const createTextNode = ({
 };
 
 /**
- * @param {Partial<import('../fetchers/types').StatsData>} stats
- * @param {Partial<import("./types").StatCardOptions>} options
- * @returns {string}
+ * Renders the stats card.
+ *
+ * @param {Partial<import('../fetchers/types').StatsData>} stats The stats data.
+ * @param {Partial<import("./types").StatCardOptions>} options The card options.
+ * @returns {string} The stats card SVG object.
  */
 const renderStatsCard = (stats = {}, options = { hide: [] }) => {
   const {
@@ -168,6 +170,7 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
     "pl",
     "de",
     "nl",
+    "zh-tw",
   ];
   const isLongLocale = longLocales.includes(locale) === true;
 
