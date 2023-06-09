@@ -43,7 +43,7 @@ describe("Test Render Wakatime Card", () => {
     expect(
       document.querySelector('g[transform="translate(0, 0)"]>text.stat.bold')
         .textContent,
-    ).toBe("本周没有编程活动");
+    ).toBe("Wakatime 用户个人资料未公开");
   });
 
   it("should render without rounding", () => {
@@ -62,6 +62,21 @@ describe("Test Render Wakatime Card", () => {
         languages: undefined,
       },
       {},
+    );
+    expect(document.querySelector(".stat").textContent).toBe(
+      "No coding activity this week",
+    );
+  });
+
+  it('should show "no coding activity this week" message when using compact layout and there has not been activity', () => {
+    document.body.innerHTML = renderWakatimeCard(
+      {
+        ...wakaTimeData.data,
+        languages: undefined,
+      },
+      {
+        layout: "compact",
+      },
     );
     expect(document.querySelector(".stat").textContent).toBe(
       "No coding activity this week",
